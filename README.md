@@ -9,11 +9,11 @@ documents.
 
 ## Repository Structure
 
-course_1_requirements_gathering  
-course_2_requirements_elicitation  
-course_3_requirements_specification  
-course_4_requirements_prioritization  
-course_5_srs_documents
+- Course 1 *Requirements Gathering for Secure Software Development*  
+- Course 2 *Requirements Elicitation: Artifact and Stakeholder Analysis*  
+- Course 3 *Requirements Specification: Goals and Conflict Analysis*  
+- Course 4 *Software Requirements Prioritization: Risk Analysis*  
+- Course 5 *SRS Documents: Requirements and Diagrammatic Notations*  
 
 Each course folder will contain notes, examples, and exercises completed during the specialization.
 
