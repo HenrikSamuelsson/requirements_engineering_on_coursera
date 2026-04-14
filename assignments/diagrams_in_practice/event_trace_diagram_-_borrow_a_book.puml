@@ -1,0 +1,42 @@
+@startuml
+title Event Trace Diagrams - Library Patron Interactions
+
+skinparam maxMessageSize 60
+skinparam sequenceMessageAlign center
+
+autonumber
+
+actor Patron
+participant "Library System" as LS
+database DB
+
+== Scenario 1: Search for a Book ==
+
+Patron -> LS: Enter search query
+LS -> DB: Search for books
+DB --> LS: Return results
+LS --> Patron: Display results
+
+
+== Scenario 2: Borrow a Book ==
+
+Patron -> LS: Request to borrow book
+LS -> DB: Check availability
+DB --> LS: Available
+
+LS -> DB: Create loan record
+LS -> DB: Mark book as borrowed
+DB --> LS: Update confirmed
+
+LS --> Patron: Borrow confirmed
+
+
+== Scenario 3: Return a Book ==
+
+Patron -> LS: Return book
+LS -> DB: Update loan status
+DB --> LS: Return recorded
+
+LS --> Patron: Return confirmation
+
+@enduml
