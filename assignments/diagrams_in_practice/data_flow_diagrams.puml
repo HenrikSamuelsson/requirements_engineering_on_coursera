@@ -1,0 +1,101 @@
+@startuml
+title Data Flow Diagrams - Library Patron Scenarios
+
+' Force vertical layout
+top to bottom direction
+
+' Nuclear spacing
+skinparam nodesep 120
+skinparam ranksep 120
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam defaultTextAlignment center
+
+skinparam rectangle {
+  Padding 30
+}
+skinparam database {
+  Padding 30
+}
+
+' ============================================================
+' Scenario 1
+' ============================================================
+package "Scenario 1: Search for a Book" {
+
+rectangle "Patron" as Patron1
+rectangle "Process:\nSearch Book" as P1
+database "Book Database" as D1
+
+' Force vertical stacking
+Patron1 -[hidden]down-> P1
+P1 -[hidden]down-> D1
+
+' Data flows
+Patron1 --> P1 : search query
+
+P1 --> D1 : search request
+
+D1 --> P1 : results
+
+P1 --> Patron1 : display results
+}
+
+' ============================================================
+' Scenario 2
+' ============================================================
+package "Scenario 2: Borrow a Book" {
+
+rectangle "Patron" as Patron2
+rectangle "Process:\nBorrow Book" as P2
+database "Book Database" as D2
+database "Loan Records" as D3
+
+' Force vertical stacking
+Patron2 -[hidden]down-> P2
+P2 -[hidden]down-> D2
+D2 -[hidden]down-> D3
+
+' Data flows
+Patron2 --> P2 : borrow request
+
+P2 --> D2 : check availability
+D2 --> P2 : availability status
+
+P2 --> D3 : create loan record
+
+P2 --> D2 : update book status
+
+P2 --> Patron2 : borrowing confirmation
+}
+
+' ============================================================
+' Scenario 3
+' ============================================================
+package "Scenario 3: Return a Book" {
+
+rectangle "Patron" as Patron3
+rectangle "Process:\nReturn Book" as P3
+database "Book Database" as D4
+database "Loan Records" as D5
+
+' Force vertical stacking
+Patron3 -[hidden]down-> P3
+P3 -[hidden]down-> D4
+D4 -[hidden]down-> D5
+
+' Data flows
+Patron3 --> P3 : return information
+
+P3 --> D5 : update loan record
+
+P3 --> D4 : update availability
+
+D5 --> P3 : loan updated
+
+D4 --> P3 : book available
+
+P3 --> Patron3 : return confirmation
+}
+
+@enduml
