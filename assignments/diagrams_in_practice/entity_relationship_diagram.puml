@@ -1,0 +1,94 @@
+@startuml
+title Entity Relationship Diagrams - Library Patron Scenarios
+
+top to bottom direction
+hide methods
+hide stereotypes
+
+skinparam linetype ortho
+
+' ============================================================
+' Scenario 1
+' ============================================================
+package "Scenario 1: Search for a Book" {
+
+class Patron1 {
+  patron_id : int
+  name : string
+}
+
+class Search1 {
+  search_id : int
+  search_query : string
+  search_date : date
+}
+
+class Book1 {
+  book_id : int
+  title : string
+  availability_status : string
+}
+
+Patron1 "1" -- "0..*" Search1 : performs
+Search1 "0..*" -- "0..*" Book1 : finds
+}
+
+' ============================================================
+' Scenario 2
+' ============================================================
+package "Scenario 2: Borrow a Book" {
+
+class Patron2 {
+  patron_id : int
+  name : string
+}
+
+class Loan2 {
+  loan_id : int
+  borrow_date : date
+  due_date : date
+}
+
+class Book2 {
+  book_id : int
+  title : string
+  availability_status : string
+}
+
+Patron2 "1" -- "0..*" Loan2 : makes
+Book2 "1" -- "0..*" Loan2 : is borrowed in
+}
+
+' ============================================================
+' Scenario 3
+' ============================================================
+package "Scenario 3: Return a Book" {
+
+class Patron3 {
+  patron_id : int
+  name : string
+}
+
+class Return3 {
+  return_id : int
+  return_date : date
+}
+
+class Loan3 {
+  loan_id : int
+  borrow_date : date
+  due_date : date
+}
+
+class Book3 {
+  book_id : int
+  title : string
+  availability_status : string
+}
+
+Patron3 "1" -- "0..*" Return3 : makes
+Book3 "1" -- "0..*" Return3 : is returned in
+Loan3 "1" -- "0..1" Return3 : closes
+}
+
+@enduml
