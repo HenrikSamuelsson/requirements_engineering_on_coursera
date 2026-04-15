@@ -1,10 +1,14 @@
 # Requirements Gathering for Secure Software Development
 
+This note contains a collection of insights on software requirements gathering, based on the course Requirements Gathering for Secure Software Development by [[University of Colorado System]] on [[Coursera]].
+
+The course covers how software requirements are elicited, analyzed, and managed, and how these activities integrate with development models such as waterfall, spiral, and agile.
+
 ## The Software Requirement Specification Process and Cost
 
 ### About the Lecturer: Hi
 
-The lecturer for the course is **Kristin Walcott-Justice**, working at the University of Colorado Colorado Springs.
+The lecturer for the course is [[Kristin Walcott-Justice]], working at the University of Colorado Colorado Springs.
 
 Her academic background includes computer science, mathematics, and a PhD in software engineering with research focused on testing tools and resource-constrained systems such as mobile and embedded devices.
 
@@ -12,7 +16,7 @@ She also has some hands-on experience with software development and software req
 
 ### Introduction to the Specialization
 
-The role of a **requirements engineer** is to act as a link between the customer and the development team. The requirements engineer must understand the system at a high level and translate the customer’s needs into clear, structured requirements that enable developers to build the correct system.
+The role of a [[requirements engineer]] is to act as a link between the customer and the development team. The requirements engineer must understand the system at a high level and translate the customer’s needs into clear, structured requirements that enable developers to build the correct system.
 
 ## Starting to Build Requirements - What does the customer want?
 
